@@ -3,12 +3,13 @@ import Axios from "axios";
 import { useEffect, useState } from "react";
  
 function App() {
+
   const [search, setSearch] = useState("");
   const [crypto, setCrypto] = useState([]);
-
+ 
   useEffect(() => {
     Axios.get(
-      `https://api.coinstats.app/public/v1/coins?skip=0&limit=100¤cy=USD`
+`https://api.coinstats.app/public/v1/coins?skip=0&limit=100¤cy=USD`
     ).then((res) => {
       setCrypto(res.data.coins);
     });
@@ -16,7 +17,7 @@ function App() {
  
   return (
     <div className="App">
-      <h1>Top 100 Cryptocurrencies</h1>
+      <h1>Top Cryptocurrencies</h1>
       <input
         type="text"
         placeholder="Search..."
@@ -36,7 +37,9 @@ function App() {
             <td>Volume(24hrs)</td>
           </tr>
         </thead>
+
         <tbody>
+
           {crypto
             .filter((val) => {
               return val.name.toLowerCase().includes(search.toLowerCase());
