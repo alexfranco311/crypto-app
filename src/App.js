@@ -36,9 +36,7 @@ function App() {
             <td>Volume(24hrs)</td>
           </tr>
         </thead>
-        {/* Mapping all the cryptos */}
         <tbody>
-          {/* Filtering to check for the searched crypto */}
           {crypto
             .filter((val) => {
               return val.name.toLowerCase().includes(search.toLowerCase());
